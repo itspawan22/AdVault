@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "AdVault",
+  "version": "1.0.0",
+  "description": "Download every creative from a Facebook Ad Library advertiser into one ZIP, and find their oldest running ads.",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AdVault",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["storage", "downloads", "offscreen", "scripting"],
+  "host_permissions": ["https://*.facebook.com/*", "https://*.fbcdn.net/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.facebook.com/ads/library*"],
+      "js": ["hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://*.facebook.com/ads/library*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

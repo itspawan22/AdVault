@@ -1,0 +1,30 @@
+{
+  "name": "advault",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AdVault \u00e2\u20ac\u201c download Facebook Ad Library creatives and find the oldest running ads.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "node tests/e2e/run.mjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "icons": "node scripts/icons.mjs"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "esbuild": "^0.24.0",
+    "playwright-core": "^1.65.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
